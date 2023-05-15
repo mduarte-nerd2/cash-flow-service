@@ -46,68 +46,6 @@ public class CashBookService : ICashBookService
         }
     }
 
-    public async Task<bool> CloseCashBookAsync(string dateOnly)
-    {
-        try
-        {
-            var cashBook = await _cashBookRepository.ReadCashBookAsync(dateOnly);
-
-            if (cashBook == null)
-            {
-                _logger.LogWarning("No cash book was found for the provided date");
-                return false;
-            }
-
-            if (cashBook.IsClosed)
-            {
-                _logger.LogWarning("Cash book is already closed");
-                return false;
-            }
-
-            var validator = new CashBookValidator();
-            var validationResult = validator.Validate(cashBook);
-
-            if (!validationResult.IsValid)
-            {
-                _logger.LogWarning($"Cash book of day {cashBook.Date} cannot be closed because it's not ready.");
-                return false;
-            }
-
-            if (cashBook.IsClosed)
-            {
-                _logger.LogWarning($"Cash book of day {cashBook.Date} is already closed.");
-                return false;
-            }
-
-            cashBook.IsClosed = true;
-            cashBook.DayBalance = CalculateDayBalance(cashBook);
-            await _cashBookRepository.UpdateCashBookAsync(cashBook);
-            return true;
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "An exception occurred while closing a cash book.");
-            throw;
-        }
-    }
-
-    private decimal CalculateDayBalance(CashBook cashBook)
-    {
-        //decimal dayBalance = cashBook.InitialBalance;
-
-        //foreach (var transaction in cashBook.TransactionList)
-        //{
-        //    dayBalance += transaction.TransactionType switch
-        //    {
-        //        DomainEntities.Enums.TransactionTypeEnum.Credit => transaction.Amount,
-        //        DomainEntities.Enums.TransactionTypeEnum.Debit => -transaction.Amount,
-        //        _ => 0
-        //    };
-        //}
-
-        return cashBook.DayBalance;
-    }
-
     public async Task<IEnumerable<CashBook>> GetAllCashBook()
     {
         try
@@ -173,6 +111,20 @@ public class CashBookService : ICashBookService
         catch (Exception ex)
         {
             _logger.LogError(ex, $"An exception occurred while altering cash book with id: {id}");
+            throw;
+        }
+    }
+
+    public async Task<CashBook> ReadCashBookByIdAsync(Guid id)
+    {
+        try
+        {
+            var cashBook = await _cashBookRepository.ReadCashBookByIdAsync(id);
+            return cashBook;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, $"An exception occurred while try catch cash book with id: {id}");
             throw;
         }
     }

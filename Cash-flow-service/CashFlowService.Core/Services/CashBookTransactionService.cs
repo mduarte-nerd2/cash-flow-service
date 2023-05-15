@@ -20,11 +20,10 @@ public class CashBookTransactionService : ICashBookTransactionService
     {
         try
         {
-            // Verificar se o CashBook existe
             var cashBook = await _cashBookRepository.ReadCashBookByIdAsync(cashBookTransaction.CashBookId);
             if (cashBook == null)
             {
-                throw new ArgumentException("Cash book not found.");
+                return null;
             }
             cashBookTransaction.CashBook = cashBook;
             return await _cashBookTransactionRepository.CreateCashBookTransactionAsync(cashBookTransaction);
@@ -58,6 +57,19 @@ public class CashBookTransactionService : ICashBookTransactionService
         catch (Exception ex)
         {
             _logger.LogError(ex, "An exception occurred while getting all cash book Transactions.");
+            throw;
+        }
+    }
+
+    public async Task<IEnumerable<CashBookTransaction>> GetCashBookTransactionsByDateAsync(DateOnly dateOnly)
+    {
+        try
+        {
+            return await _cashBookTransactionRepository.ListCashBookTransactionsByDateAsync(dateOnly);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "An exception occurred while getting cash book Transactions.");
             throw;
         }
     }

@@ -75,6 +75,7 @@ public class Startup
         container.Register<ICashBookService, CashBookService>(Lifestyle.Scoped);
         container.Register<ICashBookTransactionService, CashBookTransactionService>(Lifestyle.Scoped);
         container.Register<IValidator<CashBook>, CashBookValidator>(Lifestyle.Scoped);
+        container.Register<ICashBookManagerFacade, CashBookManagerFacade>(Lifestyle.Scoped);
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)

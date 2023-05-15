@@ -7,11 +7,11 @@ public interface ICashBookService
 {
     Task<CashBook> CreateNewCashBookAsync(CashBook cashBook);
 
+    Task<CashBook> ReadCashBookByIdAsync(Guid id);
+
     Task<CashBook> GetCashBookByDateAsync(string dateOnly);
 
     Task<IEnumerable<CashBook>> GetAllCashBook();
-
-    Task<bool> CloseCashBookAsync(string dateOnly);
 
     Task<bool> RemoveCashBookAsync(Guid id);
 

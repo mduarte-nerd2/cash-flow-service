@@ -8,6 +8,6 @@ public interface ICashBookTransactionService
     Task<CashBookTransaction> CreateNewCashBookTransactionAsync(CashBookTransaction cashBookTransaction);
     Task<IEnumerable<CashBookTransaction>> GetAllCashBookTransactionAsync();
     Task<CashBookTransaction> GetCashBookTransactionByIdAsync(Guid id);
-
+    Task<IEnumerable<CashBookTransaction>> GetCashBookTransactionsByDateAsync(DateOnly dateOnly);
 }
 

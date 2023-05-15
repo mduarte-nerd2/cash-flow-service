@@ -45,6 +45,11 @@ public class CashBookTransactionController : ControllerBase
             cashBookTransaction.CashBookId = id;
 
             var createdTransaction = await _cashBookTransactionService.CreateNewCashBookTransactionAsync(cashBookTransaction);
+            if (createdTransaction == null)
+            {
+                _logger.LogError("An error occurred while creating a new cash book transaction.");
+                return BadRequest("n error occurred while creating a new cash book transaction. Verify Cashbook ID."); ;
+            }
             var createdTransactionDTO = _mapper.Map<CashBookTransactionDTO>(createdTransaction);
 
             return CreatedAtRoute("NewCashBookTransaction", new { id = createdTransaction.Id }, createdTransaction);

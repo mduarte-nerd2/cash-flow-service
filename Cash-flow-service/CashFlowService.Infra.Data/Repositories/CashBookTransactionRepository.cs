@@ -62,4 +62,23 @@ public class CashBookTransactionRepository : ICashBookTransactionRepository
             throw;
         }
     }
+
+    public async Task<IEnumerable<CashBookTransaction>> ListCashBookTransactionsByDateAsync(DateOnly date)
+    {
+        try
+        {
+            var cashBookTransactions = await _dbContext.Set<CashBookTransaction>()
+                .Where(transaction => transaction.CashBook.Date == date)
+                .ToListAsync();
+
+            return cashBookTransactions.AsEnumerable();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "An exception occurred while getting cash book transactions by date.");
+            throw;
+        }
+    }
+
+
 }

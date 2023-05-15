@@ -10,6 +10,8 @@ namespace CashFlowService.Core.OutputPorts
         Task<CashBookTransaction> ReadCashBookTransactionAsync(Guid id);
 
         Task<IEnumerable<CashBookTransaction>> ListCashBookTransactionsAsync();
+
+        Task<IEnumerable<CashBookTransaction>> ListCashBookTransactionsByDateAsync(DateOnly date);
     }
 }
 
