@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="DomainEntities\" />
+    <None Remove="DomainEntities\Enums\" />
+    <None Remove="Validators\" />
+    <None Remove="DomainEntities\Abstractions\" />
+    <None Remove="Utils\" />
+    <None Remove="Services\" />
+    <None Remove="InputPorts\" />
+    <None Remove="OutputPorts\" />
+    <None Remove="BusinessRulesDecorators\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DomainEntities\" />
+    <Folder Include="DomainEntities\Enums\" />
+    <Folder Include="Validators\" />
+    <Folder Include="DomainEntities\Abstractions\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Services\" />
+    <Folder Include="InputPorts\" />
+    <Folder Include="OutputPorts\" />
+    <Folder Include="BusinessRulesDecorators\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.5.2" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="7.0.0" />
+    <PackageReference Include="SimpleInjector" Version="5.4.1" />
+    <PackageReference Include="SimpleInjector.Integration.AspNetCore" Version="5.4.0" />
+  </ItemGroup>
+</Project>
