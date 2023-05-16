@@ -2,6 +2,9 @@
 using CashFlowService.Core.InputPorts;
 using CashFlowService.Core.OutputPorts;
 using Microsoft.Extensions.Logging;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public class CashBookTransactionService : ICashBookTransactionService
 {
@@ -11,29 +14,28 @@ public class CashBookTransactionService : ICashBookTransactionService
 
     public CashBookTransactionService(ICashBookTransactionRepository cashBookTransactionRepository, ICashBookRepository cashBookRepository, ILogger<CashBookTransactionService> logger)
     {
-        _cashBookTransactionRepository = cashBookTransactionRepository;
-        _cashBookRepository = cashBookRepository;
-        _logger = logger;
+        _cashBookTransactionRepository = cashBookTransactionRepository ?? throw new ArgumentNullException(nameof(cashBookTransactionRepository));
+        _cashBookRepository = cashBookRepository ?? throw new ArgumentNullException(nameof(cashBookRepository));
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
     public async Task<CashBookTransaction> CreateNewCashBookTransactionAsync(CashBookTransaction cashBookTransaction)
     {
-        try
+        if (cashBookTransaction == null)
         {
-            var cashBook = await _cashBookRepository.ReadCashBookByIdAsync(cashBookTransaction.CashBookId);
-            if (cashBook == null)
-            {
-                return null;
-            }
-            cashBookTransaction.CashBook = cashBook;
-            return await _cashBookTransactionRepository.CreateCashBookTransactionAsync(cashBookTransaction);
+            throw new ArgumentNullException(nameof(cashBookTransaction));
         }
-        catch (Exception ex)
+
+        var cashBook = await _cashBookRepository.ReadCashBookByIdAsync(cashBookTransaction.CashBookId);
+        if (cashBook == null)
         {
-            _logger.LogError(ex, "An exception occurred while creating a new cash book Transaction");
-            throw;
+            throw new ArgumentException($"Not exist a cash book with ID {cashBookTransaction.CashBookId}", nameof(cashBook));
         }
+
+        cashBookTransaction.CashBook = cashBook;
+        return await _cashBookTransactionRepository.CreateCashBookTransactionAsync(cashBookTransaction);
     }
+
 
     public async Task<CashBookTransaction> GetCashBookTransactionByIdAsync(Guid id)
     {

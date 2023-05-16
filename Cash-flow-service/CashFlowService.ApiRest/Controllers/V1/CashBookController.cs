@@ -10,7 +10,7 @@ using CashFlowService.Core.DomainEntities;
 
 namespace CashFlowService.ApiRest.Controllers.V1;
 
-[Route("api/cashflow/[controller]")]
+[Route("api/cashflow/cashbooks")]
 [ApiVersion("1", Deprecated = false)]
 [ApiController]
 public class CashBookController : ControllerBase
@@ -29,32 +29,62 @@ public class CashBookController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<CashBook>> Get(string dateOnly)
     {
-        var response = await _cashBookService.GetCashBookByDateAsync(dateOnly);
-        if (response == null)
+        try
         {
-            return NotFound($"No cash book found for date {dateOnly}");
+            var response = await _cashBookService.GetCashBookByDateAsync(dateOnly);
+            if (response == null)
+            {
+                _logger.LogInformation($"No cash book found for date {dateOnly}");
+                return NotFound($"No cash book found for date {dateOnly}");
+            }
+            return Ok(response);
         }
-        return Ok(response);
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "An error occurred while retrieving cash book by date");
+            return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving cash book by date");
+        }
     }
+
 
     [HttpGet(Name = "GetAll")]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(IEnumerable<CashBook>))]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<ActionResult<IEnumerable<CashBook>>> Get()
     {
-        var response = await _cashBookService.GetAllCashBook();
-        if (response == null || !response.Any())
+        try
         {
-            return NotFound("No cash books found");
+            var response = await _cashBookService.GetAllCashBook();
+            if (response == null || !response.Any())
+            {
+                _logger.LogInformation("No cash books found");
+                return NotFound("No cash books found");
+            }
+            return Ok(response.ToList());
         }
-        return Ok(response.ToList());
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "An error occurred while retrieving all cash books");
+            return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving all cash books");
+        }
     }
 
-    [HttpPost]
+
+    [HttpPost(Name = "Post")]
     [ProducesResponseType(StatusCodes.Status201Created)]
-    public async Task<ActionResult> Post([FromBody] CashBook value)
+    public async Task<ActionResult> Post([FromBody] decimal initialBalance)
     {
-        await _cashBookService.CreateNewCashBookAsync(value);
-        return CreatedAtRoute("Get", new { dateOnly = value.Date.ToString("yyyy-MM-dd") }, value);
+        try
+        {
+            var newCashBook = new CashBook(Utils.MoneyUtils.RoundToTwoDecimalPlaces(initialBalance));
+            await _cashBookService.CreateNewCashBookAsync(newCashBook);
+            _logger.LogInformation("Cash book created successfully");
+            return CreatedAtRoute("Get", new { dateOnly = newCashBook.Date.ToString("yyyy-MM-dd") }, newCashBook);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "An error occurred while creating a new cash book");
+            return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while creating a new cash book");
+        }
     }
 }

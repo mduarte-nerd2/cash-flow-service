@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Policy;
 using System.Threading.Tasks;
 using AutoMapper;
 using CashFlowService.ApiRest.DTOs;
@@ -8,6 +9,7 @@ using CashFlowService.Core.InputPorts;
 using CashFlowService.Core.OutputPorts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CashFlowService.ApiRest.Controllers.V1;
 
@@ -34,7 +36,7 @@ public class CashBookTransactionController : ControllerBase
     [ProducesResponseType(typeof(CashBookTransaction), 201)]
     [ProducesResponseType(400)]
     [ProducesResponseType(500)]
-    public async Task<ActionResult<CashBookTransaction>> CreateNewCashBookTransaction(Guid id, [FromBody] CashBookTransactionDTO cashBookTransactionDTO)
+    public async Task<ActionResult<CashBookTransaction>> Post(Guid id, [FromBody] CashBookTransactionDTO cashBookTransactionDTO)
     {
         try
         {
@@ -47,8 +49,8 @@ public class CashBookTransactionController : ControllerBase
             var createdTransaction = await _cashBookTransactionService.CreateNewCashBookTransactionAsync(cashBookTransaction);
             if (createdTransaction == null)
             {
-                _logger.LogError("An error occurred while creating a new cash book transaction.");
-                return BadRequest("n error occurred while creating a new cash book transaction. Verify Cashbook ID."); ;
+                _logger.LogError("An error occurred while creating a new cash book transaction. Verify Cashbook ID.");
+                return BadRequest("An error occurred while creating a new cash book transaction. Verify Cashbook ID."); ;
             }
             var createdTransactionDTO = _mapper.Map<CashBookTransactionDTO>(createdTransaction);
 
@@ -63,38 +65,38 @@ public class CashBookTransactionController : ControllerBase
     }
 
 
-    [HttpGet("{id}/transactions/{transactionId}", Name = "GetTransactionById")]
+    [HttpGet("transactions/{transactionId}", Name = "GetTransactionById")]
     [ProducesResponseType(typeof(CashBookTransaction), 200)]
     [ProducesResponseType(400)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
-    public async Task<ActionResult<CashBookTransaction>> GetTransactionById(Guid id)
+    public async Task<ActionResult<CashBookTransaction>> Get(Guid transactionId)
     {
         try
         {
-            if (id == Guid.Empty)
+            if (transactionId == Guid.Empty)
                 return BadRequest("Invalid ID");
 
-            var transaction = await _cashBookTransactionService.GetCashBookTransactionByIdAsync(id);
+            var transaction = await _cashBookTransactionService.GetCashBookTransactionByIdAsync(transactionId);
             if (transaction == null)
             {
-                return NotFound($"No cash book transaction found with ID {id}");
+                return NotFound($"No cash book transaction found with ID {transactionId}");
             }
             return transaction;
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, $"An error occurred while getting cash book transaction with ID {id}.");
+            _logger.LogError(ex, $"An error occurred while getting cash book transaction with ID {transactionId}.");
             return StatusCode(500, "An internal server error occurred.");
         }
     }
 
-    [HttpGet("{id}/transactions", Name = "GetAllTransactions")]
+    [HttpGet("transactions", Name = "GetAllTransactions")]
     [ProducesResponseType(typeof(IEnumerable<CashBookTransaction>), 200)]
     [ProducesResponseType(400)]
     [ProducesResponseType(404)]
     [ProducesResponseType(500)]
-    public async Task<ActionResult<IEnumerable<CashBookTransaction>>> GetAllTransactions()
+    public async Task<ActionResult<IEnumerable<CashBookTransaction>>> Get()
     {
         try
         {

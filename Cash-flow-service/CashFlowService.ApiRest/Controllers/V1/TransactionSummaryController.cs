@@ -7,46 +7,68 @@ using CashFlowService.Core.Validators;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace CashFlowService.ApiRest.Controllers.V1;
-
-
-[Route("api/cashflow/cashbooks/{id}/[controller]")]
-[ApiVersion("1", Deprecated = false)]
-[ApiController]
-public class TransactionSummaryController : ControllerBase
+namespace CashFlowService.ApiRest.Controllers.V1
 {
-    private readonly ICashBookManagerFacade _cashBookManagerFacade;
-    private readonly ILogger<TransactionSummaryController> _logger;
-
-    public TransactionSummaryController(ICashBookManagerFacade cashBookManagerFacade, ILogger<TransactionSummaryController> logger)
+    [Route("api/cashflow/cashbooks/{id}/summary")]
+    [ApiVersion("1", Deprecated = false)]
+    [ApiController]
+    public class TransactionSummaryController : ControllerBase
     {
-        _cashBookManagerFacade = cashBookManagerFacade;
-        _logger = logger;
-    }
+        private readonly ICashBookManagerFacade _cashBookManagerFacade;
+        private readonly ILogger<TransactionSummaryController> _logger;
 
-    [HttpGet("by-id", Name = "GetCashBookTransactionSummary")]
-    public async Task<ActionResult<CashBookTransactionsSummary>> GetCashBookTransactionSummary(Guid id)
-    {
-        var result = await _cashBookManagerFacade.CashBookTransactionSummary(id);
-
-        if (result == null)
+        public TransactionSummaryController(ICashBookManagerFacade cashBookManagerFacade, ILogger<TransactionSummaryController> logger)
         {
-            return NotFound();
+            _cashBookManagerFacade = cashBookManagerFacade;
+            _logger = logger;
         }
 
-        return Ok(result);
-    }
-
-    [HttpGet("by-date", Name = "GetCashBookTransactionSummaryByDate")]
-    public async Task<ActionResult<CashBookTransactionsSummary>> GetCashBookTransactionSummaryByDate(string dateOnly)
-    {
-        var result = await _cashBookManagerFacade.DailyTransactionsSummary(dateOnly);
-
-        if (result == null)
+        [HttpGet("by-id", Name = "GetCashBookTransactionSummary")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CashBookTransactionsSummary))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<CashBookTransactionsSummary>> Get(Guid id)
         {
-            return NotFound();
+            try
+            {
+                var result = await _cashBookManagerFacade.CashBookTransactionSummary(id);
+
+                if (result == null)
+                {
+                    _logger.LogInformation($"No transaction summary found for cash book with ID: {id}");
+                    return NotFound();
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while retrieving cash book transaction summary by ID");
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving cash book transaction summary by ID");
+            }
         }
 
-        return Ok(result);
+        [HttpGet("by-date", Name = "GetCashBookTransactionSummaryByDate")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CashBookTransactionsSummary))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<CashBookTransactionsSummary>> Get(string dateOnly)
+        {
+            try
+            {
+                var result = await _cashBookManagerFacade.DailyTransactionsSummary(dateOnly);
+
+                if (result == null)
+                {
+                    _logger.LogInformation($"No transaction summary found for date: {dateOnly}");
+                    return NotFound();
+                }
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while retrieving cash book transaction summary by date");
+                return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while retrieving cash book transaction summary by date");
+            }
+        }
     }
 }
