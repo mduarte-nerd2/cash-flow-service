@@ -34,6 +34,7 @@ Abaixo as principais requisições feitas. Todas as Requisições seguem o Padr�
 - .Net Core 7;
 - EntityFrameworkInMemory 7;
 - OpenAPI e Swagger;
+- Versionamento de API;
 
 # Pacotes Nuget Utilizados
 - Nunit;
