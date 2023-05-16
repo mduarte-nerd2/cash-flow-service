@@ -134,8 +134,5 @@ public class CashBookManagerFacade : ICashBookManagerFacade
 
         return resumeCashBookTransactions;
     }
-
-
-
 }
 

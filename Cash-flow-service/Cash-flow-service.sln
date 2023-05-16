@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashFlowService.Core", "Cas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashFlowService.Infra.Data", "CashFlowService.Infra.Data\CashFlowService.Infra.Data.csproj", "{BCD1A3E8-7D07-4BDA-8EA9-571F916811B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.CashFlowService.Core", "Tests.CashFlowService.Core\Tests.CashFlowService.Core.csproj", "{2EB9B475-D6D9-4E4F-98CD-53D88DD89CBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BCD1A3E8-7D07-4BDA-8EA9-571F916811B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCD1A3E8-7D07-4BDA-8EA9-571F916811B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCD1A3E8-7D07-4BDA-8EA9-571F916811B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EB9B475-D6D9-4E4F-98CD-53D88DD89CBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EB9B475-D6D9-4E4F-98CD-53D88DD89CBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EB9B475-D6D9-4E4F-98CD-53D88DD89CBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EB9B475-D6D9-4E4F-98CD-53D88DD89CBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

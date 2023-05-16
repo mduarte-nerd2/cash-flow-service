@@ -36,4 +36,7 @@
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="DTOs\CashBookDTO.cs" />
+  </ItemGroup>
 </Project>
