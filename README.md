@@ -18,8 +18,8 @@ Em resumo, a arquitetura hexagonal oferece maior testabilidade, manutenibilidade
 É uma Aplicação desenvolvida para atender ao micro-dominio de controle de Livro Caixa e suas Transações. Todo dia um novo Livro Caixa é aberto, e ele serve para registrar todas as transações que ocorram,
 sejam de débito ou crédito, A Qualquer momento o usuário da aplicação pode criar transações que são associadas ao Livro Caixa do dia. Ao final o usuário pode solicitar um extrato total de todas as transações.
 Abaixo o modelo de domínio do microsserviço.
-![cash-flow-service-domain](https://github.com/mduarte-nerd2/cash-flow-service/assets/133377343/3d09da42-6070-4c54-a71c-f381b8bcdc90)
 
+![cash-flow-service-domain](https://github.com/mduarte-nerd2/cash-flow-service/assets/133377343/3d09da42-6070-4c54-a71c-f381b8bcdc90)
 
 #Principais Casos de Uso da Aplicação:
 - Criar Cash Book;
@@ -29,4 +29,38 @@ Abaixo o modelo de domínio do microsserviço.
 # Sequencia de Chamadas
 Abaixo as principais requisições feitas. Todas as Requisições seguem o Padrão de recursos Rest.
 ![cash-flow-service-sequence](https://github.com/mduarte-nerd2/cash-flow-service/assets/133377343/8913d016-9173-45e6-b34b-985bbcb9bfb4)
+
+# Tecnologia
+- .Net Core 7;
+- EntityFrameworkInMemory 7;
+- OpenAPI e Swagger;
+
+# Pacotes Nuget Utilizados
+- Nunit;
+- Moq;
+- AutoMapper;
+- SimpleInjector;
+- FluentValidation;
+- EntityFrameworkCore;
+
+# Testes
+Foram criados Testes usando o NUnit. os serviços testados foram:
+- CashBookService;
+- CashBookTransactionService;
+
+# Execução do serviço
+Para executar basta baixar localmente a solução;
+Baixar as definições do Postman na pasta Doc;
+Executar a Solução no Visual Studio;
+Testar via Swagger, ou fazer a importação da Collection do Postman;
+Porta padrão é a 7006.
+
+Via Postman:
+![Screen Shot 2023-05-16 at 03 43 07](https://github.com/mduarte-nerd2/cash-flow-service/assets/133377343/3f506b29-89b0-44dc-bcaa-e974ca0eb419)
+
+Via Swagger:
+![Screen Shot 2023-05-16 at 03 44 53](https://github.com/mduarte-nerd2/cash-flow-service/assets/133377343/bcdadf3a-07c7-4083-9d04-dbe1c3a74987)
+
+
+
 
