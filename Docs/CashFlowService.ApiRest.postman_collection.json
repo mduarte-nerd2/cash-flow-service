@@ -1,0 +1,1221 @@
+{
+	"info": {
+		"_postman_id": "7aa59d07-080b-4197-9de8-00ef9adb855a",
+		"name": "CashFlowService.ApiRest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11308837",
+		"_collection_link": "https://red-robot-748349.postman.co/workspace/Nerd2-Alunos~195fa2a5-b802-4300-9c21-8dd06b68e70f/collection/11308837-7aa59d07-080b-4197-9de8-00ef9adb855a?action=share&creator=11308837&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "cashflow",
+					"item": [
+						{
+							"name": "cashbooks",
+							"item": [
+								{
+									"name": "{id}",
+									"item": [
+										{
+											"name": "transactions",
+											"item": [
+												{
+													"name": "{transactionId}",
+													"item": [
+														{
+															"name": "Get Transaction By Id",
+															"request": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "text/plain"
+																	}
+																],
+																"url": {
+																	"raw": "{{LocalHost}}/api/cashflow/cashbooks/transactions/59b01c25-446c-456e-9e0c-6e858164c00d?api-version={{version}}",
+																	"host": [
+																		"{{LocalHost}}"
+																	],
+																	"path": [
+																		"api",
+																		"cashflow",
+																		"cashbooks",
+																		"transactions",
+																		"59b01c25-446c-456e-9e0c-6e858164c00d"
+																	],
+																	"query": [
+																		{
+																			"key": "api-version",
+																			"value": "{{version}}"
+																		}
+																	]
+																}
+															},
+															"response": [
+																{
+																	"name": "Success",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [],
+																		"url": {
+																			"raw": "{{baseUrl}}/api/cashflow/cashbooks/:id/transactions/:transactionId?api-version=<string>",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"cashflow",
+																				"cashbooks",
+																				":id",
+																				"transactions",
+																				":transactionId"
+																			],
+																			"query": [
+																				{
+																					"key": "api-version",
+																					"value": "<string>"
+																				}
+																			],
+																			"variable": [
+																				{
+																					"key": "id"
+																				},
+																				{
+																					"key": "transactionId"
+																				}
+																			]
+																		}
+																	},
+																	"status": "OK",
+																	"code": 200,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		}
+																	],
+																	"cookie": [],
+																	"body": "{\n  \"id\": \"<uuid>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"cashBookId\": \"<uuid>\",\n  \"cashBook\": {\n    \"id\": \"<uuid>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"date\": {\n      \"year\": \"<integer>\",\n      \"month\": \"<integer>\",\n      \"day\": \"<integer>\",\n      \"dayOfWeek\": 6,\n      \"dayOfYear\": \"<integer>\",\n      \"dayNumber\": \"<integer>\"\n    },\n    \"dayOfYear\": \"<integer>\",\n    \"initialBalance\": \"<double>\",\n    \"dayBalance\": \"<double>\",\n    \"isDebitBalance\": \"<boolean>\",\n    \"isClosed\": \"<boolean>\"\n  },\n  \"description\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"paymentType\": 9,\n  \"transactionType\": 1\n}"
+																},
+																{
+																	"name": "Bad Request",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [],
+																		"url": {
+																			"raw": "{{baseUrl}}/api/cashflow/cashbooks/:id/transactions/:transactionId?api-version=<string>",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"cashflow",
+																				"cashbooks",
+																				":id",
+																				"transactions",
+																				":transactionId"
+																			],
+																			"query": [
+																				{
+																					"key": "api-version",
+																					"value": "<string>"
+																				}
+																			],
+																			"variable": [
+																				{
+																					"key": "id"
+																				},
+																				{
+																					"key": "transactionId"
+																				}
+																			]
+																		}
+																	},
+																	"status": "Bad Request",
+																	"code": 400,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		}
+																	],
+																	"cookie": [],
+																	"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"dolor6c\": {},\n  \"ina\": {},\n  \"et_72c\": {},\n  \"elit_d3\": {}\n}"
+																},
+																{
+																	"name": "Not Found",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [],
+																		"url": {
+																			"raw": "{{baseUrl}}/api/cashflow/cashbooks/:id/transactions/:transactionId?api-version=<string>",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"cashflow",
+																				"cashbooks",
+																				":id",
+																				"transactions",
+																				":transactionId"
+																			],
+																			"query": [
+																				{
+																					"key": "api-version",
+																					"value": "<string>"
+																				}
+																			],
+																			"variable": [
+																				{
+																					"key": "id"
+																				},
+																				{
+																					"key": "transactionId"
+																				}
+																			]
+																		}
+																	},
+																	"status": "Not Found",
+																	"code": 404,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		}
+																	],
+																	"cookie": [],
+																	"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"dolor6c\": {},\n  \"ina\": {},\n  \"et_72c\": {},\n  \"elit_d3\": {}\n}"
+																},
+																{
+																	"name": "Server Error",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [],
+																		"url": {
+																			"raw": "{{baseUrl}}/api/cashflow/cashbooks/:id/transactions/:transactionId?api-version=<string>",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"cashflow",
+																				"cashbooks",
+																				":id",
+																				"transactions",
+																				":transactionId"
+																			],
+																			"query": [
+																				{
+																					"key": "api-version",
+																					"value": "<string>"
+																				}
+																			],
+																			"variable": [
+																				{
+																					"key": "id"
+																				},
+																				{
+																					"key": "transactionId"
+																				}
+																			]
+																		}
+																	},
+																	"status": "Internal Server Error",
+																	"code": 500,
+																	"_postman_previewlanguage": "text",
+																	"header": [],
+																	"cookie": [],
+																	"body": ""
+																}
+															]
+														}
+													]
+												},
+												{
+													"name": "New Cash Book Transaction",
+													"request": {
+														"method": "POST",
+														"header": [
+															{
+																"key": "Content-Type",
+																"value": "application/json"
+															},
+															{
+																"key": "Accept",
+																"value": "text/plain"
+															}
+														],
+														"body": {
+															"mode": "raw",
+															"raw": "{\n  \"description\": \"A debit Transaction.\",\n  \"amount\": 2984.67,\n  \"paymentType\": \"Cash\",\n  \"transactionType\": \"Debit\"\n}",
+															"options": {
+																"raw": {
+																	"headerFamily": "json",
+																	"language": "json"
+																}
+															}
+														},
+														"url": {
+															"raw": "{{LocalHost}}/api/cashflow/cashbooks/38254f02-4616-45b6-9e70-eb43f39de74d/transactions?api-version={{version}}",
+															"host": [
+																"{{LocalHost}}"
+															],
+															"path": [
+																"api",
+																"cashflow",
+																"cashbooks",
+																"38254f02-4616-45b6-9e70-eb43f39de74d",
+																"transactions"
+															],
+															"query": [
+																{
+																	"key": "api-version",
+																	"value": "{{version}}"
+																}
+															]
+														}
+													},
+													"response": [
+														{
+															"name": "Created",
+															"originalRequest": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"description\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"paymentType\": \"<string>\",\n  \"transactionType\": \"<string>\"\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/cashflow/cashbooks/:id/transactions?api-version=<string>",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"cashflow",
+																		"cashbooks",
+																		":id",
+																		"transactions"
+																	],
+																	"query": [
+																		{
+																			"key": "api-version",
+																			"value": "<string>"
+																		}
+																	],
+																	"variable": [
+																		{
+																			"key": "id"
+																		}
+																	]
+																}
+															},
+															"status": "Created",
+															"code": 201,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"id\": \"<uuid>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"cashBookId\": \"<uuid>\",\n  \"cashBook\": {\n    \"id\": \"<uuid>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"date\": {\n      \"year\": \"<integer>\",\n      \"month\": \"<integer>\",\n      \"day\": \"<integer>\",\n      \"dayOfWeek\": 6,\n      \"dayOfYear\": \"<integer>\",\n      \"dayNumber\": \"<integer>\"\n    },\n    \"dayOfYear\": \"<integer>\",\n    \"initialBalance\": \"<double>\",\n    \"dayBalance\": \"<double>\",\n    \"isDebitBalance\": \"<boolean>\",\n    \"isClosed\": \"<boolean>\"\n  },\n  \"description\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"paymentType\": 9,\n  \"transactionType\": 1\n}"
+														},
+														{
+															"name": "Bad Request",
+															"originalRequest": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"description\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"paymentType\": \"<string>\",\n  \"transactionType\": \"<string>\"\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/cashflow/cashbooks/:id/transactions?api-version=<string>",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"cashflow",
+																		"cashbooks",
+																		":id",
+																		"transactions"
+																	],
+																	"query": [
+																		{
+																			"key": "api-version",
+																			"value": "<string>"
+																		}
+																	],
+																	"variable": [
+																		{
+																			"key": "id"
+																		}
+																	]
+																}
+															},
+															"status": "Bad Request",
+															"code": 400,
+															"_postman_previewlanguage": "json",
+															"header": [
+																{
+																	"key": "Content-Type",
+																	"value": "application/json"
+																}
+															],
+															"cookie": [],
+															"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"dolor6c\": {},\n  \"ina\": {},\n  \"et_72c\": {},\n  \"elit_d3\": {}\n}"
+														},
+														{
+															"name": "Server Error",
+															"originalRequest": {
+																"method": "POST",
+																"header": [
+																	{
+																		"key": "Content-Type",
+																		"value": "application/json"
+																	}
+																],
+																"body": {
+																	"mode": "raw",
+																	"raw": "{\n  \"description\": \"<string>\",\n  \"amount\": \"<double>\",\n  \"paymentType\": \"<string>\",\n  \"transactionType\": \"<string>\"\n}",
+																	"options": {
+																		"raw": {
+																			"headerFamily": "json",
+																			"language": "json"
+																		}
+																	}
+																},
+																"url": {
+																	"raw": "{{baseUrl}}/api/cashflow/cashbooks/:id/transactions?api-version=<string>",
+																	"host": [
+																		"{{baseUrl}}"
+																	],
+																	"path": [
+																		"api",
+																		"cashflow",
+																		"cashbooks",
+																		":id",
+																		"transactions"
+																	],
+																	"query": [
+																		{
+																			"key": "api-version",
+																			"value": "<string>"
+																		}
+																	],
+																	"variable": [
+																		{
+																			"key": "id"
+																		}
+																	]
+																}
+															},
+															"status": "Internal Server Error",
+															"code": 500,
+															"_postman_previewlanguage": "text",
+															"header": [],
+															"cookie": [],
+															"body": ""
+														}
+													]
+												}
+											]
+										},
+										{
+											"name": "summary",
+											"item": [
+												{
+													"name": "by-id",
+													"item": [
+														{
+															"name": "Get Cash Book Transaction Summary",
+															"request": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "text/plain"
+																	}
+																],
+																"url": {
+																	"raw": "{{LocalHost}}/api/cashflow/cashbooks/38254f02-4616-45b6-9e70-eb43f39de74d/summary/by-id?api-version={{version}}",
+																	"host": [
+																		"{{LocalHost}}"
+																	],
+																	"path": [
+																		"api",
+																		"cashflow",
+																		"cashbooks",
+																		"38254f02-4616-45b6-9e70-eb43f39de74d",
+																		"summary",
+																		"by-id"
+																	],
+																	"query": [
+																		{
+																			"key": "api-version",
+																			"value": "{{version}}"
+																		}
+																	]
+																}
+															},
+															"response": [
+																{
+																	"name": "Success",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [],
+																		"url": {
+																			"raw": "{{baseUrl}}/api/cashflow/cashbooks/:id/summary/by-id?api-version=<string>",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"cashflow",
+																				"cashbooks",
+																				":id",
+																				"summary",
+																				"by-id"
+																			],
+																			"query": [
+																				{
+																					"key": "api-version",
+																					"value": "<string>"
+																				}
+																			],
+																			"variable": [
+																				{
+																					"key": "id"
+																				}
+																			]
+																		}
+																	},
+																	"status": "OK",
+																	"code": 200,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		}
+																	],
+																	"cookie": [],
+																	"body": "{\n  \"credits\": [\n    {\n      \"id\": \"<uuid>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"cashBookId\": \"<uuid>\",\n      \"cashBook\": {\n        \"id\": \"<uuid>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"date\": {\n          \"year\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"day\": \"<integer>\",\n          \"dayOfWeek\": 4,\n          \"dayOfYear\": \"<integer>\",\n          \"dayNumber\": \"<integer>\"\n        },\n        \"dayOfYear\": \"<integer>\",\n        \"initialBalance\": \"<double>\",\n        \"dayBalance\": \"<double>\",\n        \"isDebitBalance\": \"<boolean>\",\n        \"isClosed\": \"<boolean>\"\n      },\n      \"description\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"paymentType\": 9,\n      \"transactionType\": 2\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"cashBookId\": \"<uuid>\",\n      \"cashBook\": {\n        \"id\": \"<uuid>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"date\": {\n          \"year\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"day\": \"<integer>\",\n          \"dayOfWeek\": 6,\n          \"dayOfYear\": \"<integer>\",\n          \"dayNumber\": \"<integer>\"\n        },\n        \"dayOfYear\": \"<integer>\",\n        \"initialBalance\": \"<double>\",\n        \"dayBalance\": \"<double>\",\n        \"isDebitBalance\": \"<boolean>\",\n        \"isClosed\": \"<boolean>\"\n      },\n      \"description\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"paymentType\": 5,\n      \"transactionType\": 1\n    }\n  ],\n  \"debits\": [\n    {\n      \"id\": \"<uuid>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"cashBookId\": \"<uuid>\",\n      \"cashBook\": {\n        \"id\": \"<uuid>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"date\": {\n          \"year\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"day\": \"<integer>\",\n          \"dayOfWeek\": 1,\n          \"dayOfYear\": \"<integer>\",\n          \"dayNumber\": \"<integer>\"\n        },\n        \"dayOfYear\": \"<integer>\",\n        \"initialBalance\": \"<double>\",\n        \"dayBalance\": \"<double>\",\n        \"isDebitBalance\": \"<boolean>\",\n        \"isClosed\": \"<boolean>\"\n      },\n      \"description\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"paymentType\": 8,\n      \"transactionType\": 2\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"cashBookId\": \"<uuid>\",\n      \"cashBook\": {\n        \"id\": \"<uuid>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"date\": {\n          \"year\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"day\": \"<integer>\",\n          \"dayOfWeek\": 3,\n          \"dayOfYear\": \"<integer>\",\n          \"dayNumber\": \"<integer>\"\n        },\n        \"dayOfYear\": \"<integer>\",\n        \"initialBalance\": \"<double>\",\n        \"dayBalance\": \"<double>\",\n        \"isDebitBalance\": \"<boolean>\",\n        \"isClosed\": \"<boolean>\"\n      },\n      \"description\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"paymentType\": 2,\n      \"transactionType\": 1\n    }\n  ],\n  \"totalAmountCredits\": \"<double>\",\n  \"totalAmountDebits\": \"<double>\",\n  \"dayBalance\": \"<double>\",\n  \"finalBalance\": \"<double>\",\n  \"initialBalance\": \"<double>\",\n  \"countCreditsTransactions\": \"<integer>\",\n  \"countDebitTransactions\": \"<integer>\",\n  \"dateOfTransactions\": {\n    \"year\": \"<integer>\",\n    \"month\": \"<integer>\",\n    \"day\": \"<integer>\",\n    \"dayOfWeek\": 2,\n    \"dayOfYear\": \"<integer>\",\n    \"dayNumber\": \"<integer>\"\n  }\n}"
+																},
+																{
+																	"name": "Not Found",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [],
+																		"url": {
+																			"raw": "{{baseUrl}}/api/cashflow/cashbooks/:id/summary/by-id?api-version=<string>",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"cashflow",
+																				"cashbooks",
+																				":id",
+																				"summary",
+																				"by-id"
+																			],
+																			"query": [
+																				{
+																					"key": "api-version",
+																					"value": "<string>"
+																				}
+																			],
+																			"variable": [
+																				{
+																					"key": "id"
+																				}
+																			]
+																		}
+																	},
+																	"status": "Not Found",
+																	"code": 404,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		}
+																	],
+																	"cookie": [],
+																	"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"dolor6c\": {},\n  \"ina\": {},\n  \"et_72c\": {},\n  \"elit_d3\": {}\n}"
+																}
+															]
+														}
+													]
+												},
+												{
+													"name": "by-date",
+													"item": [
+														{
+															"name": "Get Cash Book Transaction Summary By Date",
+															"request": {
+																"method": "GET",
+																"header": [
+																	{
+																		"key": "Accept",
+																		"value": "text/plain"
+																	}
+																],
+																"url": {
+																	"raw": "{{LocalHost}}/api/cashflow/cashbooks/38254f02-4616-45b6-9e70-eb43f39de74d/summary/by-date?dateOnly=2023-05-16&api-version={{version}}",
+																	"host": [
+																		"{{LocalHost}}"
+																	],
+																	"path": [
+																		"api",
+																		"cashflow",
+																		"cashbooks",
+																		"38254f02-4616-45b6-9e70-eb43f39de74d",
+																		"summary",
+																		"by-date"
+																	],
+																	"query": [
+																		{
+																			"key": "dateOnly",
+																			"value": "2023-05-16"
+																		},
+																		{
+																			"key": "api-version",
+																			"value": "{{version}}"
+																		}
+																	]
+																}
+															},
+															"response": [
+																{
+																	"name": "Success",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [],
+																		"url": {
+																			"raw": "{{baseUrl}}/api/cashflow/cashbooks/:id/summary/by-date?dateOnly=<string>&api-version=<string>",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"cashflow",
+																				"cashbooks",
+																				":id",
+																				"summary",
+																				"by-date"
+																			],
+																			"query": [
+																				{
+																					"key": "dateOnly",
+																					"value": "<string>"
+																				},
+																				{
+																					"key": "api-version",
+																					"value": "<string>"
+																				}
+																			],
+																			"variable": [
+																				{
+																					"key": "id"
+																				}
+																			]
+																		}
+																	},
+																	"status": "OK",
+																	"code": 200,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		}
+																	],
+																	"cookie": [],
+																	"body": "{\n  \"credits\": [\n    {\n      \"id\": \"<uuid>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"cashBookId\": \"<uuid>\",\n      \"cashBook\": {\n        \"id\": \"<uuid>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"date\": {\n          \"year\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"day\": \"<integer>\",\n          \"dayOfWeek\": 4,\n          \"dayOfYear\": \"<integer>\",\n          \"dayNumber\": \"<integer>\"\n        },\n        \"dayOfYear\": \"<integer>\",\n        \"initialBalance\": \"<double>\",\n        \"dayBalance\": \"<double>\",\n        \"isDebitBalance\": \"<boolean>\",\n        \"isClosed\": \"<boolean>\"\n      },\n      \"description\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"paymentType\": 9,\n      \"transactionType\": 2\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"cashBookId\": \"<uuid>\",\n      \"cashBook\": {\n        \"id\": \"<uuid>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"date\": {\n          \"year\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"day\": \"<integer>\",\n          \"dayOfWeek\": 6,\n          \"dayOfYear\": \"<integer>\",\n          \"dayNumber\": \"<integer>\"\n        },\n        \"dayOfYear\": \"<integer>\",\n        \"initialBalance\": \"<double>\",\n        \"dayBalance\": \"<double>\",\n        \"isDebitBalance\": \"<boolean>\",\n        \"isClosed\": \"<boolean>\"\n      },\n      \"description\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"paymentType\": 5,\n      \"transactionType\": 1\n    }\n  ],\n  \"debits\": [\n    {\n      \"id\": \"<uuid>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"cashBookId\": \"<uuid>\",\n      \"cashBook\": {\n        \"id\": \"<uuid>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"date\": {\n          \"year\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"day\": \"<integer>\",\n          \"dayOfWeek\": 1,\n          \"dayOfYear\": \"<integer>\",\n          \"dayNumber\": \"<integer>\"\n        },\n        \"dayOfYear\": \"<integer>\",\n        \"initialBalance\": \"<double>\",\n        \"dayBalance\": \"<double>\",\n        \"isDebitBalance\": \"<boolean>\",\n        \"isClosed\": \"<boolean>\"\n      },\n      \"description\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"paymentType\": 8,\n      \"transactionType\": 2\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"cashBookId\": \"<uuid>\",\n      \"cashBook\": {\n        \"id\": \"<uuid>\",\n        \"updatedAt\": \"<dateTime>\",\n        \"createdAt\": \"<dateTime>\",\n        \"date\": {\n          \"year\": \"<integer>\",\n          \"month\": \"<integer>\",\n          \"day\": \"<integer>\",\n          \"dayOfWeek\": 3,\n          \"dayOfYear\": \"<integer>\",\n          \"dayNumber\": \"<integer>\"\n        },\n        \"dayOfYear\": \"<integer>\",\n        \"initialBalance\": \"<double>\",\n        \"dayBalance\": \"<double>\",\n        \"isDebitBalance\": \"<boolean>\",\n        \"isClosed\": \"<boolean>\"\n      },\n      \"description\": \"<string>\",\n      \"amount\": \"<double>\",\n      \"paymentType\": 2,\n      \"transactionType\": 1\n    }\n  ],\n  \"totalAmountCredits\": \"<double>\",\n  \"totalAmountDebits\": \"<double>\",\n  \"dayBalance\": \"<double>\",\n  \"finalBalance\": \"<double>\",\n  \"initialBalance\": \"<double>\",\n  \"countCreditsTransactions\": \"<integer>\",\n  \"countDebitTransactions\": \"<integer>\",\n  \"dateOfTransactions\": {\n    \"year\": \"<integer>\",\n    \"month\": \"<integer>\",\n    \"day\": \"<integer>\",\n    \"dayOfWeek\": 2,\n    \"dayOfYear\": \"<integer>\",\n    \"dayNumber\": \"<integer>\"\n  }\n}"
+																},
+																{
+																	"name": "Not Found",
+																	"originalRequest": {
+																		"method": "GET",
+																		"header": [],
+																		"url": {
+																			"raw": "{{baseUrl}}/api/cashflow/cashbooks/:id/summary/by-date?dateOnly=<string>&api-version=<string>",
+																			"host": [
+																				"{{baseUrl}}"
+																			],
+																			"path": [
+																				"api",
+																				"cashflow",
+																				"cashbooks",
+																				":id",
+																				"summary",
+																				"by-date"
+																			],
+																			"query": [
+																				{
+																					"key": "dateOnly",
+																					"value": "<string>"
+																				},
+																				{
+																					"key": "api-version",
+																					"value": "<string>"
+																				}
+																			],
+																			"variable": [
+																				{
+																					"key": "id"
+																				}
+																			]
+																		}
+																	},
+																	"status": "Not Found",
+																	"code": 404,
+																	"_postman_previewlanguage": "json",
+																	"header": [
+																		{
+																			"key": "Content-Type",
+																			"value": "application/json"
+																		}
+																	],
+																	"cookie": [],
+																	"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"dolor6c\": {},\n  \"ina\": {},\n  \"et_72c\": {},\n  \"elit_d3\": {}\n}"
+																}
+															]
+														}
+													]
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "{dateOnly}",
+									"item": [
+										{
+											"name": "Get",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{LocalHost}}/api/cashflow/cashbooks/2023-05-16?api-version={{version}}",
+													"host": [
+														"{{LocalHost}}"
+													],
+													"path": [
+														"api",
+														"cashflow",
+														"cashbooks",
+														"2023-05-16"
+													],
+													"query": [
+														{
+															"key": "api-version",
+															"value": "{{version}}"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/cashflow/cashbooks/:dateOnly?api-version=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"cashflow",
+																"cashbooks",
+																":dateOnly"
+															],
+															"query": [
+																{
+																	"key": "api-version",
+																	"value": "<string>"
+																}
+															],
+															"variable": [
+																{
+																	"key": "dateOnly"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"id\": \"<uuid>\",\n  \"updatedAt\": \"<dateTime>\",\n  \"createdAt\": \"<dateTime>\",\n  \"date\": {\n    \"year\": \"<integer>\",\n    \"month\": \"<integer>\",\n    \"day\": \"<integer>\",\n    \"dayOfWeek\": 4,\n    \"dayOfYear\": \"<integer>\",\n    \"dayNumber\": \"<integer>\"\n  },\n  \"dayOfYear\": \"<integer>\",\n  \"initialBalance\": \"<double>\",\n  \"dayBalance\": \"<double>\",\n  \"isDebitBalance\": \"<boolean>\",\n  \"isClosed\": \"<boolean>\"\n}"
+												},
+												{
+													"name": "Not Found",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/cashflow/cashbooks/:dateOnly?api-version=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"cashflow",
+																"cashbooks",
+																":dateOnly"
+															],
+															"query": [
+																{
+																	"key": "api-version",
+																	"value": "<string>"
+																}
+															],
+															"variable": [
+																{
+																	"key": "dateOnly"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"dolor6c\": {},\n  \"ina\": {},\n  \"et_72c\": {},\n  \"elit_d3\": {}\n}"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "transactions",
+									"item": [
+										{
+											"name": "Get All Transactions",
+											"request": {
+												"method": "GET",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "text/plain"
+													}
+												],
+												"url": {
+													"raw": "{{LocalHost}}/api/cashflow/cashbooks/transactions?api-version={{version}}",
+													"host": [
+														"{{LocalHost}}"
+													],
+													"path": [
+														"api",
+														"cashflow",
+														"cashbooks",
+														"transactions"
+													],
+													"query": [
+														{
+															"key": "api-version",
+															"value": "{{version}}"
+														}
+													]
+												}
+											},
+											"response": [
+												{
+													"name": "Success",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/cashflow/cashbooks/transactions?api-version=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"cashflow",
+																"cashbooks",
+																"transactions"
+															],
+															"query": [
+																{
+																	"key": "api-version",
+																	"value": "<string>"
+																}
+															]
+														}
+													},
+													"status": "OK",
+													"code": 200,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"cashBookId\": \"<uuid>\",\n    \"cashBook\": {\n      \"id\": \"<uuid>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"date\": {\n        \"year\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"day\": \"<integer>\",\n        \"dayOfWeek\": 2,\n        \"dayOfYear\": \"<integer>\",\n        \"dayNumber\": \"<integer>\"\n      },\n      \"dayOfYear\": \"<integer>\",\n      \"initialBalance\": \"<double>\",\n      \"dayBalance\": \"<double>\",\n      \"isDebitBalance\": \"<boolean>\",\n      \"isClosed\": \"<boolean>\"\n    },\n    \"description\": \"<string>\",\n    \"amount\": \"<double>\",\n    \"paymentType\": 5,\n    \"transactionType\": 2\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"cashBookId\": \"<uuid>\",\n    \"cashBook\": {\n      \"id\": \"<uuid>\",\n      \"updatedAt\": \"<dateTime>\",\n      \"createdAt\": \"<dateTime>\",\n      \"date\": {\n        \"year\": \"<integer>\",\n        \"month\": \"<integer>\",\n        \"day\": \"<integer>\",\n        \"dayOfWeek\": 2,\n        \"dayOfYear\": \"<integer>\",\n        \"dayNumber\": \"<integer>\"\n      },\n      \"dayOfYear\": \"<integer>\",\n      \"initialBalance\": \"<double>\",\n      \"dayBalance\": \"<double>\",\n      \"isDebitBalance\": \"<boolean>\",\n      \"isClosed\": \"<boolean>\"\n    },\n    \"description\": \"<string>\",\n    \"amount\": \"<double>\",\n    \"paymentType\": 4,\n    \"transactionType\": 2\n  }\n]"
+												},
+												{
+													"name": "Bad Request",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/cashflow/cashbooks/transactions?api-version=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"cashflow",
+																"cashbooks",
+																"transactions"
+															],
+															"query": [
+																{
+																	"key": "api-version",
+																	"value": "<string>"
+																}
+															]
+														}
+													},
+													"status": "Bad Request",
+													"code": 400,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"dolor6c\": {},\n  \"ina\": {},\n  \"et_72c\": {},\n  \"elit_d3\": {}\n}"
+												},
+												{
+													"name": "Not Found",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/cashflow/cashbooks/transactions?api-version=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"cashflow",
+																"cashbooks",
+																"transactions"
+															],
+															"query": [
+																{
+																	"key": "api-version",
+																	"value": "<string>"
+																}
+															]
+														}
+													},
+													"status": "Not Found",
+													"code": 404,
+													"_postman_previewlanguage": "json",
+													"header": [
+														{
+															"key": "Content-Type",
+															"value": "application/json"
+														}
+													],
+													"cookie": [],
+													"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"dolor6c\": {},\n  \"ina\": {},\n  \"et_72c\": {},\n  \"elit_d3\": {}\n}"
+												},
+												{
+													"name": "Server Error",
+													"originalRequest": {
+														"method": "GET",
+														"header": [],
+														"url": {
+															"raw": "{{baseUrl}}/api/cashflow/cashbooks/transactions?api-version=<string>",
+															"host": [
+																"{{baseUrl}}"
+															],
+															"path": [
+																"api",
+																"cashflow",
+																"cashbooks",
+																"transactions"
+															],
+															"query": [
+																{
+																	"key": "api-version",
+																	"value": "<string>"
+																}
+															]
+														}
+													},
+													"status": "Internal Server Error",
+													"code": 500,
+													"_postman_previewlanguage": "text",
+													"header": [],
+													"cookie": [],
+													"body": ""
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "Get All",
+									"request": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "text/plain"
+											}
+										],
+										"url": {
+											"raw": "{{LocalHost}}/api/cashflow/cashbooks?api-version={{version}}",
+											"host": [
+												"{{LocalHost}}"
+											],
+											"path": [
+												"api",
+												"cashflow",
+												"cashbooks"
+											],
+											"query": [
+												{
+													"key": "api-version",
+													"value": "{{version}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Success",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/cashflow/cashbooks?api-version=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cashflow",
+														"cashbooks"
+													],
+													"query": [
+														{
+															"key": "api-version",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"date\": {\n      \"year\": \"<integer>\",\n      \"month\": \"<integer>\",\n      \"day\": \"<integer>\",\n      \"dayOfWeek\": 0,\n      \"dayOfYear\": \"<integer>\",\n      \"dayNumber\": \"<integer>\"\n    },\n    \"dayOfYear\": \"<integer>\",\n    \"initialBalance\": \"<double>\",\n    \"dayBalance\": \"<double>\",\n    \"isDebitBalance\": \"<boolean>\",\n    \"isClosed\": \"<boolean>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"updatedAt\": \"<dateTime>\",\n    \"createdAt\": \"<dateTime>\",\n    \"date\": {\n      \"year\": \"<integer>\",\n      \"month\": \"<integer>\",\n      \"day\": \"<integer>\",\n      \"dayOfWeek\": 5,\n      \"dayOfYear\": \"<integer>\",\n      \"dayNumber\": \"<integer>\"\n    },\n    \"dayOfYear\": \"<integer>\",\n    \"initialBalance\": \"<double>\",\n    \"dayBalance\": \"<double>\",\n    \"isDebitBalance\": \"<boolean>\",\n    \"isClosed\": \"<boolean>\"\n  }\n]"
+										},
+										{
+											"name": "Not Found",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/cashflow/cashbooks?api-version=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cashflow",
+														"cashbooks"
+													],
+													"query": [
+														{
+															"key": "api-version",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Not Found",
+											"code": 404,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"type\": \"<string>\",\n  \"title\": \"<string>\",\n  \"status\": \"<integer>\",\n  \"detail\": \"<string>\",\n  \"instance\": \"<string>\",\n  \"dolor6c\": {},\n  \"ina\": {},\n  \"et_72c\": {},\n  \"elit_d3\": {}\n}"
+										}
+									]
+								},
+								{
+									"name": "Post",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "45.88",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{LocalHost}}/api/cashflow/cashbooks?api-version={{version}}",
+											"host": [
+												"{{LocalHost}}"
+											],
+											"path": [
+												"api",
+												"cashflow",
+												"cashbooks"
+											],
+											"query": [
+												{
+													"key": "api-version",
+													"value": "{{version}}"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "Created",
+											"originalRequest": {
+												"method": "POST",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "<double>",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/cashflow/cashbooks?api-version=<string>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"cashflow",
+														"cashbooks"
+													],
+													"query": [
+														{
+															"key": "api-version",
+															"value": "<string>"
+														}
+													]
+												}
+											},
+											"status": "Created",
+											"code": 201,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
